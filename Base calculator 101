@@ -1,7 +1,7 @@
  SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract Calculator {yh
+contract Calculator {yhk
     // We use int256 to allow for negative results
     int256 public lastResult;
 
@@ -10,7 +10,7 @@ contract Calculator {yh
     function add(int256 a, int256 b) public returns (int256) {
         lastResult = a + b;
         emit CalculationPerformed("Addition", a, b, lastResult);
-        return lastResult;
+        return lastResult;g
     }
 
     function subtract(int256 a, int256 b) public returns (int256) {
