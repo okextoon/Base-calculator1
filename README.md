@@ -1,7 +1,7 @@
  SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract Calculator {
+contract Calculator {yh
     // We use int256 to allow for negative results
     int256 public lastResult;
 
