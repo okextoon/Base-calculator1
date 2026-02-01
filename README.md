@@ -1,0 +1,38 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Calculator {
+    // We use int256 to allow for negative results
+    int256 public lastResult;
+
+    event CalculationPerformed(string operation, int256 a, int256 b, int256 result);
+
+    function add(int256 a, int256 b) public returns (int256) {
+        lastResult = a + b;
+        emit CalculationPerformed("Addition", a, b, lastResult);
+        return lastResult;
+    }
+
+    function subtract(int256 a, int256 b) public returns (int256) {
+        lastResult = a - b;
+        emit CalculationPerformed("Subtraction", a, b, lastResult);
+        return lastResult;
+    }
+
+    function multiply(int256 a, int256 b) public returns (int256) {
+        lastResult = a * b;
+        emit CalculationPerformed("Multiplication", a, b, lastResult);
+        return lastResult;
+    }
+
+    function divide(int256 a, int256 b) public returns (int256) {
+        require(b != 0, "Cannot divide by zero");
+        lastResult = a / b;
+        emit CalculationPerformed("Division", a, b, lastResult);
+        return lastResult;
+    }
+
+    function getResult() public view returns (int256) {
+        return lastResult;
+    }
+}
